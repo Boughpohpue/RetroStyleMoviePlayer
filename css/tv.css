@@ -1,0 +1,249 @@
+.tvContainer {
+	margin: auto;
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	z-index: 1;
+	transform: translate(-50%, 0);
+	transition: all 0.66s ease-in;
+}
+
+.tvContainer.onside {
+	transform: translate(-24%, 0);
+	transition: all 0.99s ease-out;
+}
+.tvContainer.fullscreen {
+	transform: translate(-50%, 0);
+	transition: all 0.66s ease-out;
+}
+
+.tv {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	z-index: 2;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/tv.png");
+}
+
+.tvIrdaLed {
+	position: absolute;
+	right: 32.33%;
+	bottom: 9.1%;
+	min-width: 0.66%;
+	max-width: 0.66%;
+	min-height: 0.69%;
+	max-height: 0.69%;
+	border-radius: 50%;
+	z-index: 3;
+}
+
+.tvIrdaLed.on {
+	background-color: #880000;
+}
+.tvIrdaLed.off {
+	background-color: #330000;
+}
+
+.tvPowerLed {
+	position: absolute;
+	right: 34.23%;
+	bottom: 9.1%;
+	min-width: 1.19%;
+	max-width: 1.19%;
+	min-height: 0.66%;
+	max-height: 0.66%;
+	border-radius: 33%;
+	z-index: 3;
+	background-color: #440000;
+}
+
+.tvPowerLed.on {
+	background-color: #00aa00;
+}
+
+.tvPowerLed.off {
+	background-color: #aa0000;
+}
+
+.tvPowerButton {
+	position: absolute;
+	right: 36.75%;
+	bottom: 9.33%;
+	min-width: 3.22%;
+	max-width: 3.22%;
+	min-height: 4.33%;
+	max-height: 4.33%;
+	border-radius: 12%;
+	z-index: 122;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.tvVolumeDownButton {
+	position: absolute;
+	right: 56%;
+	bottom: 9%;
+	min-width: 2.3%;
+	max-width: 2.3%;
+	min-height: 1.33%;
+	max-height: 1.33%;
+	border-radius: 12%;
+	z-index: 122;
+	cursor: pointer;
+	background-color: #404040;
+	border: solid 1px gray;
+}
+.tvVolumeUpButton {
+	position: absolute;
+	right: 53%;
+	bottom: 9%;
+	min-width: 2.3%;
+	max-width: 2.3%;
+	min-height: 1.33%;
+	max-height: 1.33%;
+	border-radius: 12%;
+	z-index: 122;
+	cursor: pointer;
+	background-color: #404040;
+	border: solid 1px gray;
+}
+.tvChannelDownButton {
+	position: absolute;
+	right: 48%;
+	bottom: 9%;
+	min-width: 2.3%;
+	max-width: 2.3%;
+	min-height: 1.33%;
+	max-height: 1.33%;
+	border-radius: 12%;
+	z-index: 122;
+	cursor: pointer;
+	background-color: #404040;
+	border: solid 1px gray;
+}
+.tvChannelUpButton {
+	position: absolute;
+	right: 45%;
+	bottom: 9%;
+	min-width: 2.3%;
+	max-width: 2.3%;
+	min-height: 1.33%;
+	max-height: 1.33%;
+	border-radius: 12%;
+	z-index: 122;
+	cursor: pointer;
+	background-color: #404040;
+	border: solid 1px gray;
+}
+
+.tvScreen {
+	position: absolute;
+	border-radius: 1%;
+	z-index: 123;
+	/*background-color: #3c3c3c;*/
+	background-color: #000000;
+	opacity: 0;
+	/*transition: all 0.11s ease-out;*/
+}
+
+.tvScreen.on {
+	opacity: 1;
+	/*transition: all 3.33s ease-in;*/
+}
+
+.tvScreenInput {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	border-radius: 1%;
+	z-index: 134;
+	opacity: 0;
+	background-color: #6c6c6c;
+}
+
+.tvScreenInput.active {
+	opacity: 1;
+}
+
+.tvScreenText {
+	top: 7%;
+	left: 7%;
+	position: absolute;
+	min-width: 86%;
+	max-width: 86%;
+	min-height: 15%;
+	max-height: 15%;
+	opacity: 1;
+	z-index: 155;
+	color: #00dd00;
+	font-weight: normal;
+	font-family: Teletactile;
+	font-size: 6.5vh;
+	transform: scale(1, 1.33);
+}
+
+.tvScreenText.active {
+	opacity: 1;
+}
+
+.tvScreenInputText {
+	bottom: 12%;
+	left: 50%;
+	position: absolute;
+	min-width: 95%;
+	max-width: 95%;
+	min-height: 10%;
+	max-height: 10%;
+	opacity: 1;
+	z-index: 155;
+	color: white;
+
+	text-align: center;
+	font-family: RealVhs;
+	/* font-size: 96px; */
+	font-size: 4.55vh;
+	font-weight: normal;
+	transform: translate(-50%, 0);
+	transition: opacity 0.33s ease-in;
+}
+
+.tvScreenInputText.active {
+	opacity: 0.75;
+	transition: opacity 0.33s ease-out;
+	transition-delay: 0.33s;
+}
+
+/* FOR SCREEN TURN ON/OFF ANIMATION */
+.thelescreen {
+	background-color: #e1eef6;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 100vw;
+	height: 100vh;
+	transform: translate(-50%, -50%);
+	content: " ";
+	overflow: hidden;
+
+	/* Fallback for old browsers */
+	background: #16222a;
+
+	background: -webkit-linear-gradient(to left, #16222a, #3a6073);
+	background: linear-gradient(to left, #16222a, #3a6073);
+
+	background-size: cover;
+
+	/* background-image: url(https://cldup.com/gn3s3Fg75t.gif); */
+
+	color: #e1eef6;
+}

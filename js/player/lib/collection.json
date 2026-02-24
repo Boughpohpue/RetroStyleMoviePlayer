@@ -1,0 +1,139 @@
+{
+	"movies": [
+		{
+			"id": "tt0088763",
+			"title": "Back to the Future",
+			"locTitle": "Powrot do przyszlosci",
+			"genres": "comedy s-f",
+			"locGenres": "kom. s-f",
+			"year": 1985,
+			"movieFilePath": "vid/[1985] Back to the Future.mp4"
+		},
+		{
+			"id": "tt0092099",
+			"title": "TOP GUN",
+			"locTitle": "TOP GUN",
+			"genres": "action",
+			"locGenres": "sensacja",
+			"year": 1986,
+			"movieFilePath": "vid/[1986] Top Gun.mp4"
+		},
+		{
+			"id": "tt0092240",
+			"title": "The Wraith",
+			"locTitle": "Widmo",
+			"genres": "action s-f",
+			"locGenres": "sens. s-f",
+			"year": 1986,
+			"movieFilePath": "vid/[1986] The Wraith.mp4"
+		},
+		{
+			"id": "tt0092675",
+			"title": "Blood Sport",
+			"locTitle": "Krwawy sport",
+			"genres": "action",
+			"locGenres": "karate",
+			"year": 1988,
+			"movieFilePath": "vid/[1988] Blood Sport.mp4"
+		},
+		{
+			"id": "tt0096380",
+			"title": "Vice Versa",
+			"locTitle": "Vice Versa",
+			"genres": "comedy",
+			"locGenres": "komedia",
+			"year": 1988,
+			"movieFilePath": "vid/[1988] Vice Versa.mp4"
+		},
+		{
+			"id": "tt0083944",
+			"title": "Rambo - First Blood",
+			"locTitle": "Rambo",
+			"genres": "action",
+			"locenres": "sensacja",
+			"year": 1982,
+			"movieFilePath": "vid/[1982] Rambo - First Blood.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Super Mario Bros.",
+			"locTitle": "Super Mario Bros.",
+			"genres": "adv. s-f",
+			"locGenres": "przyg. s-f",
+			"year": 1993,
+			"movieFilePath": "vid/[1993] Super Mario Bros..mp4"
+		},
+		{
+			"id": "tt0097138",
+			"title": "Cyborg",
+			"locTitle": "Cyborg",
+			"genres": "thr. s-f",
+			"locGenres": "tril. s-f",
+			"year": 1989,
+			"movieFilePath": "vid/[1989] Cyborg.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Super Mario Bros.",
+			"locTitle": "Super Mario Bros.",
+			"genres": "adv. s-f",
+			"locGenres": "przyg. s-f",
+			"year": 1993,
+			"movieFilePath": "vid/[1993] Super Mario Bros..mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Young guns",
+			"locTitle": "Młode strzelby",
+			"genres": "western",
+			"locGenres": "western",
+			"year": 1988,
+			"movieFilePath": "vid/[1988] Young Guns.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Dark Angel",
+			"locTitle": "Mroczny anioł",
+			"genres": "thril. s-f",
+			"locGenres": "tril. s-f",
+			"year": 1990,
+			"movieFilePath": "vid/[1990] Dark Angel.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Bonnie and CLyde",
+			"locTitle": "Bonnie i Clyde",
+			"genres": "crime drama",
+			"locGenres": "dramat krym.",
+			"year": 1967,
+			"movieFilePath": "vid/[1967] Bonnie And Clyde.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Raising Arizona",
+			"locTitle": "Raising Arizona",
+			"genres": "comedy",
+			"locGenres": "komedia",
+			"year": 1987,
+			"movieFilePath": "vid/[1987] Raising Arizona.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Don't Be a Menace",
+			"locTitle": "Chłopaczki z sąsiedztwa",
+			"genres": "comedy",
+			"locGenres": "komedia",
+			"year": 1996,
+			"movieFilePath": "vid/[1996] Don't Be a Menace.mp4"
+		},
+		{
+			"id": "tt0108255",
+			"title": "Red Scorpion",
+			"locTitle": "Czerwony skorpion",
+			"genres": "action",
+			"locGenres": "sensacyjny",
+			"year": 1988,
+			"movieFilePath": "vid/[1988] Red Scorpion.mp4"
+		}
+	]
+}

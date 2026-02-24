@@ -1,0 +1,133 @@
+.tape {
+	cursor: grab;
+	position: absolute;
+
+	font-weight: bold;
+	font-family: Typing;
+	font-size: 1vh;
+
+	opacity: 1;
+	color: #3c3c3c;
+	line-height: 80%;
+	word-break: break-all;
+	word-wrap: break-word;
+	user-select: none;
+
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	/* background-image: url("../img/vhs_front_01.jpg"); */
+}
+
+.tape.onShelf {
+	cursor: grab;
+	z-index: 15;
+	transform: scale(1) translate(0, 0);
+	transition: all 0.66s ease-out;
+}
+.tape.dragging {
+	cursor: grabbing;
+	z-index: 1670;
+	transform: scale(2);
+}
+.tape.readyToDrag {
+	cursor: grab;
+	z-index: 16;
+	transform: scale(1.66);
+}
+.tape.zoom {
+	cursor: grab;
+	z-index: 1670;
+	transform: scale(2) translate(17%, -5%);
+	transition: all 0.66s ease-out;
+}
+
+.vcrTapeReady {
+	z-index: 6;
+	cursor: grab;
+	transform: scale(2);
+	transition: all 0.66s ease-in;
+}
+
+.vcrTapeOnRails {
+	z-index: 6;
+	cursor: pointer;
+	transform: scale(1.025);
+	transition: all 0.66s ease-out;
+}
+
+.vcrTapeInside {
+	z-index: 3;
+	cursor: none;
+	clip-path: inset(0 0 0 0);
+	transform: scale(0.92);
+	-webkit-filter: brightness(66%);
+
+	transition: all 0.66s ease-in;
+}
+
+.vcrTapeLoaded {
+	z-index: 3;
+	cursor: none;
+	clip-path: inset(0 0 55% 0);
+	transform: scale(0.92) translate(0, 55%);
+	transition: all 0.66s ease-out;
+}
+.vcrTapeClosed {
+	z-index: 3;
+	cursor: none;
+	clip-path: inset(45% 0 55% 0);
+	/*clip-path: inset(0 0 55% 0);*/
+	transform: scale(0.92) translate(0, 55%);
+	transition: all 0.66s ease-in;
+}
+.vcrTapeLoadedPeek {
+	z-index: 3;
+	cursor: none;
+	clip-path: inset(0 0 55% 0);
+	/*clip-path: inset(0 0 55% 0);*/
+	transform: scale(0.95) translate(0, 55%);
+	transition: all 0.11s ease-in;
+}
+
+.tapeTitle1 {
+	position: absolute;
+	cursor: pointer;
+}
+
+.tapeTitle2 {
+	position: absolute;
+	cursor: pointer;
+}
+
+.tapeInfo1 {
+	position: absolute;
+}
+
+.tapeInfo2 {
+	position: absolute;
+}
+
+.tapeSticker {
+	background-color: cornsilk;
+	border: solid 1px cornsilk;
+	box-shadow: -1px #00003c;
+	font-size: 1.25vh;
+	font-weight: bolder;
+	font-family: Courier;
+	line-height: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+.tapeSticker1 {
+	position: absolute;
+}
+.tapeSticker2 {
+	position: absolute;
+}
+.tapeSticker3 {
+	position: absolute;
+}
+
+.tapeMoviePoster {
+	position: absolute;
+}

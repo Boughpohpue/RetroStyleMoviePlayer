@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>[VHS] Retro PLAYER</title>
+    <link rel="shortcut icon" href="ico/fav.ico">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <!-- CORE SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/core/helpers/text.js"></script>
+    <script src="js/core/helpers/guid.js"></script>
+    <script src="js/core/helpers/math.js"></script>
+    <script src="js/core/helpers/geometry.js"></script>
+    <script src="js/core/helpers/datetime.js"></script>
+    <script src="js/core/helpers/cursor.js"></script>
+    <script src="js/core/helpers/low.js"></script>
+    <script src="js/core/models/bounds.js"></script>
+    <script src="js/core/models/browser.js"></script>
+    <script src="js/core/models/playerEventArgs.js"></script>
+    <script src="js/core/models/playerEvent.js"></script>
+    <script src="js/core/models/eventArgs.js"></script>
+    <script src="js/core/models/event.js"></script>
+    <script src="js/core/models/events.js"></script>
+    <script src="js/core/services/dragger.js"></script>
+    <script src="js/core/services/playerEventsService.js"></script>
+    <script src="js/core/services/eventsService.js"></script>
+    <script src="js/core/services/storageService.js"></script>
+    <script src="js/core/services/ajaxService.js"></script>
+
+    <!-- PLAYER SCRIPTS -->
+    <script src="js/player/design/layout.js"></script>
+    <script src="js/player/design/layoutMeasures.js"></script>
+    <script src="js/player/fx/effects.js"></script>
+    <script src="js/player/models/settingsModel.js"></script>
+    <script src="js/player/models/elementBoundsModel.js"></script>
+    <script src="js/player/models/textInfo.js"></script>
+    <script src="js/player/models/playerTimer.js"></script>
+    <script src="js/player/models/soundModel.js"></script>
+    <script src="js/player/models/vhsMovieModel.js"></script>
+    <script src="js/player/models/vhsTapeModel.js"></script>
+    <script src="js/player/models/vhsShelfModel.js"></script>
+    <script src="js/player/models/signalModel.js"></script>
+    <script src="js/player/models/vcrModel.js"></script>
+    <script src="js/player/models/channelModel.js"></script>
+    <script src="js/player/models/tvSignalModel.js"></script>
+    <script src="js/player/models/tvAntennaChannelModel.js"></script>
+    <script src="js/player/models/tvAntennaModel.js"></script>
+    <script src="js/player/models/tvScreenModel.js"></script>
+    <script src="js/player/models/tvModel.js"></script>
+    <script src="js/player/models/remoteControllerModel.js"></script>
+    <script src="js/player/models/playerModel.js"></script>
+    <script src="js/player/lib/channels.js"></script>
+    <script src="js/player/lib/sounds.js"></script>
+
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/layers.css" />
+    <link rel="stylesheet" href="css/tv.css" />
+    <link rel="stylesheet" href="css/vcr.css" />
+    <link rel="stylesheet" href="css/signal.css" />
+    <link rel="stylesheet" href="css/remote.css" />
+    <link rel="stylesheet" href="css/vhs.css" />
+    <link rel="stylesheet" href="css/shelf.css" />
+    <!-- <link rel="stylesheet" href="css/pause-effects.css" /> -->
+
+    <style>
+    </style>
+</head>
+
+<body class="dim">
+
+    <div id="myBackground" class="bgLayer"></div>
+    <div id="myForeground" class="fgLayer"></div>
+    <div id="myTitleScreen" class="titlescreen">
+        <h3 class="myhead h1">Player</h3>
+        <h3 class="myhead h3">by infertus</h3>
+    </div>
+    <div id="mySplashScreen" class="splash off"></div>
+
+    <div id="myPlayerShelf" class="shelfContainer"></div>
+    <div id="myPlayerRemote" class="remoteContainer"></div>
+    <div id="myPlayerTv" class="tvContainer"></div>
+    <div id="myPlayerVcr" class="vcrContainer"></div>
+
+    <div id="myPlayerPoster" class="posterContainer"></div>
+
+    <script>
+
+        const isdebug = true;
+        const appStartTime = new Date().getTime();
+
+        const player = new playerModel(
+            $("#myPlayerTv"),
+            $("#myPlayerVcr"),
+            $("#myPlayerShelf"),
+            $("#myPlayerRemote"),
+            $("#myPlayerPoster")
+        );
+
+        $(document).ready(function () {
+
+            welcome();
+            player.assembly();
+            player.loadChannels(myChannels);
+            $.getJSON("js/player/lib/collection.json", function (data) {
+              player.loadTapesFromData(data, true);
+            });
+
+            dragger.registerDropElement($("#myPlayerVcr"));
+            dragger.registerDropElement($("#myPlayerShelf"));
+
+            playerEventsService.addEvent(new PlayerEvent("draggerDrop"));
+            playerEventsService.addEvent(new PlayerEvent("tvCommand"));
+            playerEventsService.addEvent(new PlayerEvent("vcrCommand"));
+            playerEventsService.addEvent(new PlayerEvent("vcrVhsTimeTimerTick"));
+            playerEventsService.addEvent(new PlayerEvent("vcrDateTimeTimerTick"));
+            playerEventsService.addEvent(new PlayerEvent("vcrVhsRewTimeTimerTick"));
+
+            playerEventsService.addEventListener("draggerDrop", (e, s) => { player.Vcr.onDrop(e, s); });
+            playerEventsService.addEventListener("draggerDrop", (e, s) => { player.Shelf.onDrop(e, s); });
+            playerEventsService.addEventListener("tvCommand", (e, s) => { player.Tv.onCommand(e, s); });
+            playerEventsService.addEventListener("vcrCommand", (e, s) => { player.Vcr.onCommand(e, s); });
+            playerEventsService.addEventListener("vcrVhsTimeTimerTick", (e, s) => { player.Vcr.onVhsTimeTimerTick(e, s); });
+            playerEventsService.addEventListener("vcrDateTimeTimerTick", (e, s) => { player.Vcr.onDateTimeTimerTick(e, s); });
+            playerEventsService.addEventListener("vcrVhsRewTimeTimerTick", (e, s) => { player.Vcr.onVhsRewTimeTimerTick(e, s); });
+
+            $("#mySplashScreen").click(function () {
+                hideSplashTitle();
+            });
+
+            $("#myTitleScreen").click(function () {
+                hideSplashTitle();
+            });
+        });
+
+        function welcome() {
+            if (isdebug) {
+                $("#myForeground").addClass("off");
+                $("#myTitleScreen").addClass("off");
+                $("#mySplashScreen").addClass("off");
+                $("#mySplashScreen").addClass("out");
+                $("#myTitleScreen").addClass("out");
+                $("#myForeground").addClass("out");
+            }
+            else {
+                setTimeout(() => {
+                    $("#mySplashScreen").removeClass("off");
+
+                    setTimeout(() => {
+                        hideSplashTitle();
+                    }, 5333);
+
+                }, 133);
+            }
+        }
+
+        function hideSplashTitle() {
+            if (isdebug || new Date().getTime() - appStartTime < 5333 || $("#myTitleScreen").hasClass("off")) {
+                return;
+            }
+
+            $("#myTitleScreen").addClass("off");
+            $("#mySplashScreen").addClass("off");
+            setTimeout(() => {
+                $("#myTitleScreen").addClass("out");
+                $("#mySplashScreen").addClass("out");
+                setTimeout(() => {
+                    $("#myForeground").addClass("off");
+                    setTimeout(() => {
+                        $("#myForeground").addClass("out");
+                    }, 1333);
+                }, 144);
+            }, 1333);
+        }
+
+    </script>
+
+    <script src="js/player/handlers/commonHandler.js"></script>
+    <script src="js/player/handlers/signalHandler.js"></script>
+    <script src="js/player/handlers/vhsHandler.js"></script>
+    <script src="js/player/handlers/tvHandler.js"></script>
+    <script src="js/player/handlers/vcrHandler.js"></script>
+    <script src="js/player/handlers/shelfHandler.js"></script>
+    <script src="js/player/handlers/remoteHandler.js"></script>
+
+</body>
+
+</html>

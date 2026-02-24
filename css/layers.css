@@ -1,0 +1,129 @@
+.retroLayer {
+	top: 0%;
+	left: 0%;
+	position: absolute;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	background-color: transparent;
+}
+
+.bgLayer {
+	top: 0%;
+	left: 0%;
+	position: absolute;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	background-color: transparent;
+}
+
+.fgLayer {
+	top: 0%;
+	left: 0%;
+	z-index: 1000;
+	opacity: 1;
+	/* cursor: wait; */
+	cursor: none;
+	display: block;
+	position: absolute;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	background-color: black;
+	transition: all 2.66s ease-out;
+}
+.fgLayer.off {
+	opacity: 0;
+	transition: all 1.33s ease-in;
+}
+.fgLayer.out {
+	display: none;
+	transition: all 0.33s ease-out;
+}
+
+.splash {
+	top: 0%;
+	left: 0%;
+	/* cursor: grab; */
+	cursor: none;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	position: absolute;
+	display: block;
+	z-index: 1450;
+	opacity: 1;
+	background-color: #000;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/splash.jpg");
+	transition: all 2.66s ease-in;
+}
+.splash.off {
+	opacity: 0;
+	transition: all 1.33s ease-out;
+}
+.splash.out {
+	display: none;
+	transition: all 0.33s ease-out;
+}
+
+.titlescreen {
+	top: 0%;
+	left: 0%;
+	/* cursor: grab; */
+	cursor: none;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	position: absolute;
+	opacity: 1;
+	display: block;
+	z-index: 1460;
+	background: transparent;
+	transition: all 2.66s ease-in;
+}
+.titlescreen.off {
+	opacity: 0;
+	/* cursor: wait; */
+	cursor: none;
+	transition: all 1.33s ease-out;
+}
+.titlescreen.out {
+	display: none;
+	cursor: none;
+	transition: all 0.33s ease-out;
+}
+
+.myhead {
+	min-width: 100%;
+	max-width: 100%;
+	text-align: center;
+	font-weight: normal;
+	font-family: Veselka;
+}
+
+.myhead.h1 {
+	position: absolute;
+	top: 60%;
+	margin: auto;
+	color: #fff;
+	font-size: 144px;
+	animation: flicker_green 2.25s infinite alternate;
+}
+
+.myhead.h3 {
+	position: absolute;
+	top: 75%;
+	margin: auto;
+	color: #fff;
+	font-size: 44px;
+	transform: rotate(355deg) translate(8.5%, -150%);
+	animation: flicker_pink 4.75s infinite alternate;
+}

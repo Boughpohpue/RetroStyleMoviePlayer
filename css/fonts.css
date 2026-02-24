@@ -1,0 +1,44 @@
+@font-face {
+	font-family: Glony;
+	src: url("../fonts/Glony.ttf");
+}
+
+@font-face {
+	font-family: Typing;
+	src: url("../fonts/Typing.ttf");
+}
+
+@font-face {
+	font-family: Lcd;
+	src: url("../fonts/DigitalDream.ttf");
+}
+
+@font-face {
+	font-family: College;
+	src: url("../fonts/College.ttf");
+}
+
+@font-face {
+	font-family: Disco;
+	src: url("../fonts/Disco.ttf");
+}
+
+@font-face {
+	font-family: Monoton;
+	src: url("../fonts/Monoton.ttf");
+}
+
+@font-face {
+	font-family: Veselka;
+	src: url("../fonts/Veselka.ttf");
+}
+
+@font-face {
+	font-family: Teletactile;
+	src: url("../fonts/Teletactile.ttf");
+}
+
+@font-face {
+	font-family: RealVhs;
+	src: url("../fonts/RealVhs.ttf");
+}

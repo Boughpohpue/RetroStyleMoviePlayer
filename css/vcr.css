@@ -1,0 +1,194 @@
+.vcrContainer {
+	z-index: 2;
+	opacity: 1;
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, -100%);
+	transition: all 0.66s ease-in;
+}
+
+.vcrContainer.onside {
+	transform: translate(-20%, -100%);
+	transition: all 0.99s ease-out;
+}
+
+.vcrContainer.hidden {
+	opacity: 0;
+}
+
+.vcr {
+	z-index: 3;
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr.png");
+}
+
+.vcrInjectCover {
+	z-index: 5;
+	cursor: pointer;
+	position: absolute;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_inject_cover.png");
+	transform: translate(0, 0) scaleY(1);
+	transition: 0.66s ease-in;
+}
+
+.vcrHead {
+	z-index: 2;
+	cursor: none;
+	position: absolute;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_head_small.png");
+	transform: translate(0, 0) scale(1);
+}
+
+.vcrInjectCover.open {
+	z-index: 5;
+	transform: translate(0, -45%) scaleY(0.1);
+	transition: all 0.33s ease-out;
+}
+
+.vcrInjectCover.openEject {
+	z-index: 5;
+	transform: translate(0, -45%) scaleY(0.1);
+	transition: all 0.99s ease-out;
+}
+.vcrDisplay {
+	position: absolute;
+	z-index: 5;
+	user-select: none;
+	color: #006666;
+	background-color: #121212;
+	transition-duration: all 0.66s;
+}
+.vcrDisplay.on {
+	color: #00ced1;
+	background: #161616;
+	transition-duration: all 0.66s;
+}
+
+.vcrDisplayDateTime {
+	z-index: 6;
+	position: absolute;
+	display: block;
+	font-size: 2.85vh;
+	font-weight: bold;
+	font-family: Lcd;
+	text-align: right;
+	transform: scaleX(0.5) translate(50%, 0);
+	/*border: solid 1px magenta;*/
+}
+
+.vcrDisplayInfo {
+	z-index: 6;
+	position: absolute;
+	display: block;
+	font-size: 2.85vh;
+	font-weight: bold;
+	font-family: Lcd;
+	text-align: left;
+	transform: scaleX(0.5) translate(-50%, 0);
+	/*border: solid 1px red;*/
+}
+
+.vcrPowerButton {
+	position: absolute;
+	z-index: 4;
+	cursor: pointer;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_switch_off.png");
+}
+.vcrPowerButton.on {
+	background-image: url("../img/vcr_switch_on.png");
+}
+
+.vcrEjectButton {
+	position: absolute;
+	z-index: 4;
+	cursor: pointer;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_eject_button.png");
+}
+.vcrEjectButton.active {
+	background-image: url("../img/vcr_eject_button_active.png");
+}
+
+.vcrPlayButton {
+	position: absolute;
+	z-index: 4;
+	cursor: pointer;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_play_button.png");
+}
+.vcrPlayButton.active {
+	background-image: url("../img/vcr_play_button_active.png");
+}
+
+.vcrPlayButton.blinking {
+	animation: vcrPlayButtonBlinkFrames2 1s infinite normal;
+}
+
+.vcrStopButton {
+	position: absolute;
+	z-index: 4;
+	cursor: pointer;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../img/vcr_stop_button.png");
+}
+
+.ledIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #a4a4a4;
+	transform: translate(-50%, -30%);
+}
+
+.ledIcon.active {
+	color: #0be04b;
+}
+
+.ledIcon.semi {
+	color: #ff8800;
+}
+
+@keyframes vcrPlayButtonBlinkFrames {
+	from {
+		background-image: url("../img/vcr_play_button_active.png");
+	}
+	to {
+		background-image: url("../img/vcr_play_button.png");
+	}
+}
+
+@keyframes vcrPlayButtonBlinkFrames2 {
+	0% {
+		background-image: url("../img/vcr_play_button_active.png");
+	}
+	50% {
+		background-image: url("../img/vcr_play_button.png");
+	}
+	/* 50% {
+		background-image: url("../img/vcr_play_button_active.png");
+	}
+	75% {
+		background-image: url("../img/vcr_play_button.png");
+	} */
+	100% {
+		background-image: url("../img/vcr_play_button_active.png");
+	}
+}
