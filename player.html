@@ -109,7 +109,7 @@
             player.assembly();
             player.loadChannels(myChannels);
             $.getJSON("js/player/lib/collection.json", function (data) {
-              player.loadTapesFromData(data, true);
+              player.loadTapesFromData(data, false);
             });
 
             dragger.registerDropElement($("#myPlayerVcr"));
